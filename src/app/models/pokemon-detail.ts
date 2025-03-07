@@ -1,13 +1,18 @@
+import { Ability } from "./ability";
+import { Move } from "./move";
+import { Type } from "./type";
+
 export class PokemonDetail{
     private _id: number;
     private _name: string;
     private _weight: string;
     private _height: string;
     private _image: string;
-    private _types: string[];
-    private _moves: string[];
+    private _types: Type[];
+    private _moves: Move[];
+    private _abilities: Ability[];
 
-    constructor(id: number, name: string, weight: string, height: string, image: string, types: string[], moves: string[]){
+    constructor(id: number, name: string, weight: string, height: string, image: string, types: Type[], moves: Move[], abilities: Ability[]){
         this._name = name;
         this._id = id;
         this._weight = weight;
@@ -15,6 +20,7 @@ export class PokemonDetail{
         this._image = image;
         this._types = types;
         this._moves = moves;
+        this._abilities = abilities;
     }
 
     public get id(): number { return this._id; }
@@ -27,9 +33,11 @@ export class PokemonDetail{
     public set height(value: string) { this._height = value; }
     public get image(): string { return this._image; }
     public set image(value: string) { this._image = value; }
-    public get types(): string[] { return this._types; }
-    public set types(value: string[]) { this._types = value; }
-    public get moves(): string[] { return this._moves; }
-    public set moves(value: string[]) { this._moves = value; }
+    public get types(): Type[] { return this._types; }
+    public set types(value: Type[]) { this._types = value; }
+    public get moves(): Move[] { return this._moves; }
+    public set moves(value: Move[]) { this._moves = value; }
+    public get abilities(): Ability[] { return this._abilities; }
+    public set abilities(value: Ability[]) { this._abilities = value; }
     
 }

@@ -1,15 +1,17 @@
-<h1>Listado de pokemon</h1>
+<main class="container">
+    <h1>Listado de pokemon</h1>
 
-<div class="card-container">
-
-    <!-- Tarjeta 1 -->
-    <div *ngFor="let pokemon of pokemons"  class="card">
-        <img src="{{getImageByPokemon(pokemon)}}" alt="{{pokemon.name}}">
-        <div class="card-content">
-            <h3>{{pokemon.name}}</h3>
-            <p>Este es un ejemplo de tarjeta. Puedes añadir una breve descripción aquí.</p>
-            <a href="{{getUrlDetailPokemon(pokemon)}}">Ver detalle</a>
+    <div class="card-container">
+    
+        <!-- Tarjeta 1 -->
+        <div *ngFor="let pokemon of pokemons"  class="card">
+            <img src="{{getImageByPokemon(pokemon)}}" alt="{{pokemon.name}}">
+            <div class="card-content">
+                <h3>{{capitalizeFirstLetter(pokemon.name)}}</h3>
+                <p>Este es un ejemplo de tarjeta. Puedes añadir una breve descripción aquí.</p>
+                <a href="{{getUrlDetailPokemon(pokemon)}}">Ver detalle</a>
+            </div>
         </div>
+    
     </div>
-
-</div>
+</main>

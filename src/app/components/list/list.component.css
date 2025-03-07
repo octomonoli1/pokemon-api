@@ -1,4 +1,8 @@
 /* Contenedor principal de las tarjetas */
+.container{
+    padding: 1em;
+}
+
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -17,10 +21,11 @@
 
 /* Estilo para la imagen */
 .card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-bottom: 2px solid #ddd;
+    width: 100%; /* Ajusta el ancho deseado */
+    height: 150px;
+    object-fit: contain; /* Asegura que la imagen se adapte sin distorsionarse */
+    margin: auto; /* Centra la imagen dentro de la tarjeta */
+    display: block; /* Evita comportamientos inesperados */
 }
 
 /* Contenedor de texto dentro de la tarjeta */

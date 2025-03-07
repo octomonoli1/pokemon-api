@@ -1,17 +1,48 @@
-<div class="container">
-    <h1 *ngIf="pokemon">{{capitalizeFirstLetter(pokemon.name)}}</h1>
+<div *ngIf="pokemon" class="container">
+    <h1>{{capitalizeFirstLetter(pokemon.name)}}</h1>
 
-    <div class="detail-image">
-      <img src="{{getImageByPokemon(pokemon)}}" alt="Detail Image">
+    <div class="detail-item botones">
+      <a *ngIf="id > 1" href="{{goPrev()}}" class="next-button">Anterior</a>
+      <a href="{{goNext()}}" class="next-button">Siguiente</a> 
+    </div>
+    
+
+
+
+    <div class="detail-image image-container ">
+      <img src="{{getImageByPokemon(pokemon)}}" alt="Frontal">
+      <img src="{{getImageByPokemon(pokemon, true)}}" alt="Shiny">
+    </div>
+
+    <div class="detail-image image-container">
+      <img *ngFor="let type of types" src="{{type.image}}" alt="{{type.name}}">
     </div>
 
     <div class="detail-item">
-        <strong>Altura: </strong>{{pokemon?.height}} 
+        <strong>Altura: </strong>{{pokemon.height}} 
     </div>
 
     <div class="detail-item">
-        <strong>Peso: </strong>{{pokemon?.weight}} 
+        <strong>Peso: </strong>{{pokemon.weight}} 
     </div>
+
+    <div class="table-container">
+      <h2>Habilidades</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Habilidad</th>
+            <th>Efecto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ability of abilities">
+            <td>{{ability.name}}</td>
+            <td>{{ability.desc}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
 
     <div class="table-container">
         <h2>Movimientos que puede aprender</h2>
@@ -20,12 +51,18 @@
             <tr>
               <th>#</th>
               <th>Movimiento</th>
+              <th>Precsión</th>
+              <th>Poder</th>
+              <th>Descripción</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let move of moves">
-              <td>1</td>
-              <td>{{move.move.name}}</td>
+              <td>{{move.id}}</td>
+              <td>{{move.name}}</td>
+              <td>{{move.accuracy}}</td>
+              <td>{{move.power}}</td>
+              <td>{{move.desc}}</td>
             </tr>
           </tbody>
         </table>

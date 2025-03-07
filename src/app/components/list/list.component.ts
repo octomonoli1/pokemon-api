@@ -42,4 +42,8 @@ export class ListComponent implements OnInit{
     return "/detail/" + urlSplitted[urlSplitted.length - 2];
   }
 
+  capitalizeFirstLetter(text: string ): string {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
+
 }

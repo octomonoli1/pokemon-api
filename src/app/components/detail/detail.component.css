@@ -27,11 +27,33 @@ p {
   margin-bottom: 20px;
 }
 
+.image-container {
+  display: flex; /* Coloca los elementos en línea horizontal */
+}
+
 .detail-image img {
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.botones{
+  align-items: center;
+}
+
+.next-button {
+  padding: 12px 25px;
+    font-size: 18px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
 }
 
 .back-button {
