@@ -1,0 +1,33 @@
+ /* Estilo del footer */
+ footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+footer h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+footer p {
+    font-size: 16px;
+    margin: 0;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    margin: 0 15px;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff5722;
+}

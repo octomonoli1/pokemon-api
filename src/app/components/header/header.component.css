@@ -1,0 +1,86 @@
+/* Contenedor principal del header */
+header {
+    position: relative;
+    height: 60vh; /* Ajusta la altura del header */
+    background-image: url('https://images.wikidexcdn.net/mwuploads/wikidex/thumb/8/83/latest/20220718061031/Prado_Herradura.jpg/1200px-Prado_Herradura.jpg'); /* Cambia por tu imagen */
+    background-size: cover;
+    background-position: center;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el logo */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 120px; /* Tamaño del logo */
+}
+
+/* Estilo del texto del header */
+.header-content {
+    z-index: 10; /* Asegura que el contenido esté por encima de la imagen */
+}
+
+.header-content h1 {
+    font-size: 48px;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra para mejor visibilidad */
+}
+
+.header-content p {
+    font-size: 20px;
+    margin: 10px 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo para el botón */
+.cta-button {
+    padding: 12px 25px;
+    font-size: 18px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e64a19;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 36px;
+    }
+
+    .header-content p {
+        font-size: 18px;
+    }
+
+    .cta-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: 50vh;
+    }
+
+    .logo {
+        width: 100px;
+    }
+}
