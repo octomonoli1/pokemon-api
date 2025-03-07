@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { Pokemon } from '../../models/pokemon';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-list',
@@ -11,10 +12,12 @@ import { Pokemon } from '../../models/pokemon';
 export class ListComponent implements OnInit{
 
   private _pokemonService: PokemonService;
+  private _location: Location;
   public pokemons: Pokemon[] = [];
 
-  constructor(pokemonService: PokemonService){
+  constructor(pokemonService: PokemonService, location: Location){
     this._pokemonService = pokemonService;
+    this._location = location;
   }
 
   public ngOnInit(): void {
@@ -32,6 +35,11 @@ export class ListComponent implements OnInit{
     const id = urlSplitted[urlSplitted.length - 2];
 
     return urlImage + "/" + id + ".gif";
+  }
+
+  public getUrlDetailPokemon(pokemon: Pokemon): string{
+    const urlSplitted = pokemon.url.split("/");
+    return "/detail/" + urlSplitted[urlSplitted.length - 2];
   }
 
 }

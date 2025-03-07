@@ -1,1 +1,35 @@
-<p>detail works!</p>
+<div class="container">
+    <h1 *ngIf="pokemon">{{capitalizeFirstLetter(pokemon.name)}}</h1>
+
+    <div class="detail-image">
+      <img src="{{getImageByPokemon(pokemon)}}" alt="Detail Image">
+    </div>
+
+    <div class="detail-item">
+        <strong>Altura: </strong>{{pokemon?.height}} 
+    </div>
+
+    <div class="detail-item">
+        <strong>Peso: </strong>{{pokemon?.weight}} 
+    </div>
+
+    <div class="table-container">
+        <h2>Movimientos que puede aprender</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Movimiento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let move of moves">
+              <td>1</td>
+              <td>{{move.move.name}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+    <a href="#" class="back-button">Volver</a>
+  </div>

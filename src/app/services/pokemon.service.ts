@@ -17,4 +17,10 @@ export class PokemonService {
   public getList(): Observable<any>{
     return this._httpClient.get(this._urlBase);
   }
+
+  public getDetail(id: number): Observable<any>{
+    return this._httpClient.get(this._urlBase + "/" + id);
+  }
+
+  
 }
