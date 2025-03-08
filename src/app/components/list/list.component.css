@@ -65,3 +65,48 @@
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
+
+/* Estilos generales de los botones */
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 2px solid #007bff;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    min-width: 120px;
+  }
+  
+  /* Efectos de hover y active */
+  button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    transform: translateY(0);
+    background-color: #003f7f;
+    border-color: #003f7f;
+  }
+  
+  /* Estilo para el botón deshabilitado */
+  button:disabled {
+    cursor: not-allowed;
+    background-color: #e0e0e0;
+    border-color: #ccc;
+    color: #999;
+  }

@@ -3,7 +3,7 @@
 
     <div class="card-container">
     
-        <!-- Tarjeta 1 -->
+        <!-- Tarjeta Pokemon -->
         <div *ngFor="let pokemon of pokemons"  class="card">
             <img src="{{getImageByPokemon(pokemon)}}" alt="{{pokemon.name}}">
             <div class="card-content">
@@ -15,3 +15,8 @@
     
     </div>
 </main>
+
+<div class="pagination">
+    <button (click)="prev()" [disabled] = "prevPage == null">Anterior</button>
+    <button (click)="next()" [disabled] = "nextPage == null">Siguiente</button>
+  </div>

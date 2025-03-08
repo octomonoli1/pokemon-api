@@ -13,6 +13,8 @@ export class ListComponent implements OnInit{
 
   private _pokemonService: PokemonService;
   public pokemons: Pokemon[] = [];
+  public nextPage: string = "";
+  public prevPage: string = "";
 
   constructor(pokemonService: PokemonService, location: Location){
     this._pokemonService = pokemonService;
@@ -23,8 +25,36 @@ export class ListComponent implements OnInit{
       (data:any) => {
         let {count, next, previous, results} = data;
         this.pokemons = results;
+        this.nextPage = next;
+        this.prevPage = previous;
       }
     );
+  }
+
+  public next(): void{
+    this._pokemonService.getList(this.nextPage).subscribe(
+      (data:any) => {
+        let {count, next, previous, results} = data;
+        this.pokemons = results;
+        this.nextPage = next;
+        this.prevPage = previous;
+      }
+    );
+  }
+
+  public prev(): void{
+    this._pokemonService.getList(this.prevPage).subscribe(
+      (data:any) => {
+        let {count, next, previous, results} = data;
+        this.pokemons = results;
+        this.nextPage = next;
+        this.prevPage = previous;
+      }
+    );
+  }
+
+  public getData(nextPage: string): void{
+    
   }
 
   public getImageByPokemon(pokemon: Pokemon): string{
