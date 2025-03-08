@@ -30,11 +30,11 @@ export class ListComponent implements OnInit{
   }
 
   public getImageByPokemon(pokemon: Pokemon): string{
-    const urlImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/";
+    const urlImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
     const urlSplitted = pokemon.url.split("/");
     const id = urlSplitted[urlSplitted.length - 2];
 
-    return urlImage + "/" + id + ".gif";
+    return urlImage + "/" + id + ".png";
   }
 
   public getUrlDetailPokemon(pokemon: Pokemon): string{
