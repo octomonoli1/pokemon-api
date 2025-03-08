@@ -12,12 +12,10 @@ import { Location } from '@angular/common';
 export class ListComponent implements OnInit{
 
   private _pokemonService: PokemonService;
-  private _location: Location;
   public pokemons: Pokemon[] = [];
 
   constructor(pokemonService: PokemonService, location: Location){
     this._pokemonService = pokemonService;
-    this._location = location;
   }
 
   public ngOnInit(): void {
