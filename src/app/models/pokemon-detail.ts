@@ -1,5 +1,6 @@
 import { Ability } from "./ability";
 import { Move } from "./move";
+import { Specie } from "./specie";
 import { Type } from "./type";
 
 export class PokemonDetail{
@@ -11,8 +12,9 @@ export class PokemonDetail{
     private _types: Type[];
     private _moves: Move[];
     private _abilities: Ability[];
+    private _species: Specie;
 
-    constructor(id: number, name: string, weight: string, height: string, image: string, types: Type[], moves: Move[], abilities: Ability[]){
+    constructor(id: number, name: string, weight: string, height: string, image: string, types: Type[], moves: Move[], abilities: Ability[], species: Specie){
         this._name = name;
         this._id = id;
         this._weight = weight;
@@ -21,6 +23,7 @@ export class PokemonDetail{
         this._types = types;
         this._moves = moves;
         this._abilities = abilities;
+        this._species = species;
     }
 
     public get id(): number { return this._id; }
@@ -39,5 +42,7 @@ export class PokemonDetail{
     public set moves(value: Move[]) { this._moves = value; }
     public get abilities(): Ability[] { return this._abilities; }
     public set abilities(value: Ability[]) { this._abilities = value; }
+    public get species(): Specie { return this._species; }
+    public set species(value: Specie) { this._species = value; }
     
 }

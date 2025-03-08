@@ -5,11 +5,12 @@ import { Location } from '@angular/common';
 import { PokemonDetail } from '../../models/pokemon-detail';
 import { Move } from '../../models/move';
 import { MoveService } from '../../services/move.service';
-import { Pokemon } from '../../models/pokemon';
 import { Type } from '../../models/type';
 import { TypeService } from '../../services/type.service';
 import { Ability } from '../../models/ability';
 import { AbilityService } from '../../services/ability.service';
+import { SpeciesService } from '../../services/species.service';
+import { Specie } from '../../models/specie';
 
 @Component({
   selector: 'app-detail',
@@ -24,23 +25,23 @@ export class DetailComponent implements OnInit{
   private _moveService: MoveService;
   private _typeService: TypeService;
   private _abilityService: AbilityService;
+  private _specieService: SpeciesService;
   private _route: ActivatedRoute;
-  private _router: Router;
   public pokemon: PokemonDetail | null = null;
   public moves: Move[] = [];
   public types: Type[] = [];
   public abilities: Ability[] = [];
+  public specie: Specie | null = null;
   public id: number = 0;
 
-  constructor(location: Location, pokemonService: PokemonService, route: ActivatedRoute, moveService: MoveService, typeService: TypeService, abilityService: AbilityService, router: Router){
+  constructor(location: Location, pokemonService: PokemonService, route: ActivatedRoute, moveService: MoveService, typeService: TypeService, abilityService: AbilityService, specieService: SpeciesService){
     this._pokemonService = pokemonService;
     this._route = route;
     this._location = location;
     this._moveService = moveService;
     this._typeService = typeService;
     this._abilityService = abilityService;
-    this._router = router;
-    
+    this._specieService = specieService;
   }
 
   public ngOnInit(): void {
@@ -54,6 +55,20 @@ export class DetailComponent implements OnInit{
         (data:any) => this.pokemon = data
       );
 
+      //Obtener datos de la especie
+      if(this.pokemon?.species != null){
+        this._specieService.getDetail(this.pokemon.species.url).subscribe(
+          (data:any) => {
+            const specie: Specie = data;
+            specie.name = this.getNameByLanguage(data.names, 'es');
+            specie.desc = this.getDescByLanguage(data.flavor_text_entries, 'es');
+            specie.isLegend = data.is_legendary;
+            specie.isSingular = data.is_mythical;
+            this.specie = specie;
+          }
+        );
+      }
+
       //Obtener las habilidades
       this.pokemon?.abilities.forEach(
         (data:any)=>{
@@ -63,7 +78,6 @@ export class DetailComponent implements OnInit{
               ability.name = this.getNameByLanguage(data.names, 'es');
               ability.desc = this.getDescByLanguage(data.flavor_text_entries, 'es');
               this.abilities.push(ability);
-              console.log(ability);
             }
           );
           

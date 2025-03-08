@@ -1,5 +1,5 @@
-<div *ngIf="pokemon" class="container">
-    <h1>{{capitalizeFirstLetter(pokemon.name)}}</h1>
+<div *ngIf="pokemon && specie" class="container">
+    <h1>{{specie.name}}</h1>
 
     <div class="navigation-buttons">
       <a *ngIf="id > 1" href="{{ goPrev() }}" class="button previous-button">Anterior</a>
@@ -15,12 +15,28 @@
       <img *ngFor="let type of types" src="{{type.image}}" alt="{{type.name}}">
     </div>
 
-    <div class="detail-item">
-        <strong>Altura: </strong>{{pokemon.height}} 
-    </div>
+    <h2>Datos de la especie</h2>
+
+    <p>{{specie.desc}}</p>
 
     <div class="detail-item">
+        <strong>Altura: </strong>{{pokemon.height}} - 
         <strong>Peso: </strong>{{pokemon.weight}} 
+    </div>
+
+    <h2>Marcas</h2>
+
+    <div class="checkbox-container">
+      <label class="custom-checkbox">
+        <input type="checkbox" [checked]="specie.isLegend" />
+        Es Legendario 
+        <span class="checkmark"></span>
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" [checked]="specie.isSingular" />
+        Es Singular
+        <span class="checkmark"></span>
+      </label>
     </div>
 
     <div class="table-container">
