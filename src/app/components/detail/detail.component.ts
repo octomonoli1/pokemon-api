@@ -33,6 +33,7 @@ export class DetailComponent implements OnInit{
   public abilities: Ability[] = [];
   public specie: Specie | null = null;
   public id: number = 0;
+  public cries: string = "";
 
   constructor(location: Location, pokemonService: PokemonService, route: ActivatedRoute, moveService: MoveService, typeService: TypeService, abilityService: AbilityService, specieService: SpeciesService){
     this._pokemonService = pokemonService;
@@ -52,7 +53,10 @@ export class DetailComponent implements OnInit{
 
     if(this.id){
       this._pokemonService.getDetail(this.id).subscribe(
-        (data:any) => this.pokemon = data
+        (data:any) => {
+          this.pokemon = data;
+          this.cries = data.cries.legacy;
+          }
       );
 
       //Obtener datos de la especie
@@ -167,5 +171,18 @@ export class DetailComponent implements OnInit{
   capitalizeFirstLetter(text: string ): string {
       return text.charAt(0).toUpperCase() + text.slice(1);
   }
+
+  playAudio(audio: HTMLAudioElement): void {
+    audio.play();
+  }
+
+  pauseAudio(audio: HTMLAudioElement): void {
+    audio.pause();
+  }
+
+  stopAudio(audio: HTMLAudioElement): void {
+    audio.pause();
+    audio.currentTime = 0; // Reset playback position
+  } 
 
 }

@@ -182,3 +182,22 @@ p {
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
+
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

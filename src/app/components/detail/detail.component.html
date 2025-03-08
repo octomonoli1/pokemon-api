@@ -39,6 +39,18 @@
       </label>
     </div>
 
+    <h2>Sonidos</h2>
+    <div class="audio-player">
+      <audio #audioPlayer controls>
+        <!-- Agregamos diferentes formatos para máxima compatibilidad -->
+        <source src="{{cries}}" type="audio/ogg" />
+        <p>Your browser does not support the audio element.</p>
+      </audio>
+      <button (click)="playAudio(audioPlayer)">Play</button>
+      <button (click)="pauseAudio(audioPlayer)">Pause</button>
+      <button (click)="stopAudio(audioPlayer)">Stop</button>
+    </div>
+
     <div class="table-container">
       <h2>Habilidades</h2>
       <table>

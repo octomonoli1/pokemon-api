@@ -13,8 +13,9 @@ export class PokemonDetail{
     private _moves: Move[];
     private _abilities: Ability[];
     private _species: Specie;
+    private _cries: string;
 
-    constructor(id: number, name: string, weight: string, height: string, image: string, types: Type[], moves: Move[], abilities: Ability[], species: Specie){
+    constructor(id: number, name: string, weight: string, height: string, image: string, types: Type[], moves: Move[], abilities: Ability[], species: Specie, cries: string){
         this._name = name;
         this._id = id;
         this._weight = weight;
@@ -24,6 +25,7 @@ export class PokemonDetail{
         this._moves = moves;
         this._abilities = abilities;
         this._species = species;
+        this._cries = cries;
     }
 
     public get id(): number { return this._id; }
@@ -44,5 +46,7 @@ export class PokemonDetail{
     public set abilities(value: Ability[]) { this._abilities = value; }
     public get species(): Specie { return this._species; }
     public set species(value: Specie) { this._species = value; }
+    public get cries(): string { return this._cries; }
+    public set cries(value: string) { this._cries = value; }
     
 }
