@@ -3,7 +3,7 @@
 
     <div class="navigation-buttons">
       <a *ngIf="id > 1" href="{{ goPrev() }}" class="button previous-button">Anterior</a>
-      <a href="{{ goNext() }}" class="button next-button">Siguiente</a>
+      <a *ngIf="id < 1025" href="{{ goNext() }}" class="button next-button">Siguiente</a>
     </div>
     
     <div class="detail-image image-container ">
