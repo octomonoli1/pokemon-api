@@ -1,3 +1,5 @@
+import { Type } from "./type";
+
 export class Move{
     private _id: number;
     private _name: string;
@@ -5,14 +7,16 @@ export class Move{
     private _desc: string;
     private _url: string;
     private _power: string;
+    private _type: Type;
 
-    constructor(id: number, name: string, accuracy: string, desc: string, url: string, power: string){
+    constructor(id: number, name: string, accuracy: string, desc: string, url: string, power: string, type: Type){
         this._id = id;
         this._name = name;
         this._accuracy = accuracy;
         this._desc = desc;
         this._url = url;
         this._power = power;
+        this._type = type;
     }
 
     public get id(): number { return this._id; }
@@ -27,4 +31,6 @@ export class Move{
     public set url(value: string) { this._url = value; }
     public get power(): string { return this._power; }
     public set power(value: string) { this._power = value; }
+    public get type(): Type { return this._type; }
+    public set type(value: Type) { this._type = value; }
 }

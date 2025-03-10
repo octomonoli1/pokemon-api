@@ -111,6 +111,8 @@ export class DetailComponent implements OnInit{
               const move: Move = data;
               move.name = this.getNameByLanguage(data.names, 'es');
               move.desc = this.getDescByLanguage(data.flavor_text_entries, 'es');
+              const urlType = data.type.url.split("/");
+              move.type.image = this.getTypeImageById(urlType[urlType.length - 2]);
               this.moves.push(move);
             }
           )

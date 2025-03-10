@@ -76,6 +76,7 @@
             <tr>
               <th>#</th>
               <th>Movimiento</th>
+              <th>Tipo</th>
               <th>Precsión</th>
               <th>Poder</th>
               <th>Descripción</th>
@@ -85,6 +86,7 @@
             <tr *ngFor="let move of moves">
               <td>{{move.id}}</td>
               <td>{{move.name}}</td>
+              <td><img src="{{move.type.image}}" /></td>
               <td>{{move.accuracy}}</td>
               <td>{{move.power}}</td>
               <td>{{move.desc}}</td>
